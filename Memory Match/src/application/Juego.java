@@ -66,6 +66,8 @@ public class Juego {
 		
 		//Matriz Logica
 		mat = new int [2][2];
+		this.numerosAleatorios();
+		
 		
 		BotonJugar.addMouseListener(new MouseAdapter() {
 			@Override
@@ -82,8 +84,8 @@ public class Juego {
 	
 	public void numerosAleatorios() {
 		
-		for (int i=0; i<matriz.length;i++) {
-			for(int j=0; j<matriz.length;j++) {
+		for (int i=0; i<2;i++) {
+			for(int j=0; j<2;j++) {
 				mat[i][j] = 0;}
 		}
 		
@@ -91,9 +93,10 @@ public class Juego {
 		for (int i=0; i<2;i++) {
 			for(int j=0; j<2;j++) {
 				mat[i][j] = Aleatorio.nextInt(2);
-				
+				System.out.print(mat[i][j]+" ");
 			
 						}
+			System.out.print(" ");
 					}
 				}			
 		}
