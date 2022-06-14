@@ -20,8 +20,10 @@ public class Juego {
 	JLabel BotonJugar;
 	//Juego
 	JPanel panelJuego;
+	JLabel fondoJuego;
 	JLabel matriz[][];
 	int mat[][];
+	int matAux [][];
 	String Jugador;
 	Random Aleatorio;
 	
@@ -64,8 +66,19 @@ public class Juego {
 		panelJuego.setLayout(null); //Para colocar los componentes donde queramos
 		panelJuego.setVisible(true);
 		
+		//Fondo de Juego
+		fondoJuego = new JLabel();
+		fondoJuego.setSize(ventana.getWidth(),ventana.getHeight());//Tamaño del fondo
+		fondoJuego.setIcon(new ImageIcon("imagenes/fondo.JPG")); //Indicamos cual es el fondo
+		fondoJuego.add(fondoJuego,0);
+		
+		
+		
+		
 		//Matriz Logica
 		mat = new int [2][2];
+		matAux = new int [2][2];
+		Aleatorio = new Random();
 		this.numerosAleatorios();
 		
 		
@@ -83,21 +96,38 @@ public class Juego {
 	}
 	
 	public void numerosAleatorios() {
-		
+		int acumulador=0;
 		for (int i=0; i<2;i++) {
 			for(int j=0; j<2;j++) {
-				mat[i][j] = 0;}
+				mat[i][j] = 0;
+				matAux[i][j] = 0;
+			}
+			
 		}
-		
 		
 		for (int i=0; i<2;i++) {
 			for(int j=0; j<2;j++) {
 				mat[i][j] = Aleatorio.nextInt(2);
-				System.out.print(mat[i][j]+" ");
-			
+				do {
+				for (int k=0; k<2;k++) {
+					for (int l=0; l<2;l++) {
+						if (mat[i][j]==mat[k][l]) {
+							acumulador +=1;
 						}
-			System.out.print(" ");
 					}
-				}			
-		}
+				}	
+				if (acumulador==3) {
+					mat[i][j] = Aleatorio.nextInt(2);
+				}
+			} while(acumulador==3);
+		}	
+	}
+	/*	for(int i=0;i<2;i++) {
+			for(int j=0;j<2;j++) {
+				System.out.print(mat[i][j]+ " ");
+			}
+			System.out.println("");
+		}*/
+}	
+}
 
