@@ -31,7 +31,7 @@ public class Juego {
 	public Juego() {
 		//Ventana
 		ventana = new JFrame("Juego de Memoria");
-		ventana.setSize(700, 500); //Tamaño de la ventana
+		ventana.setSize(700, 500); //TamaÃ±o de la ventana
 		ventana.setLayout(null); //Para colocar los componentes donde queramos
 		ventana.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);//Cuando nuestro programa se cierre no se quede ejecutando en segundo plano
 		ventana.setLocationRelativeTo(null); //Ventana en el centro de la pantalla
@@ -39,7 +39,7 @@ public class Juego {
 		
 		//Jpanel Presentancion
 		panelPresentacion = new JPanel();
-		panelPresentacion.setSize(ventana.getWidth(),ventana.getHeight()); //Tamaño de la ventana
+		panelPresentacion.setSize(ventana.getWidth(),ventana.getHeight()); //TamaÃ±o de la ventana
 		panelPresentacion.setLocation(0, 0);
 		panelPresentacion.setLayout(null); //Para colocar los componentes donde queramos
 		panelPresentacion.setVisible(true);
@@ -47,13 +47,13 @@ public class Juego {
 		
 		//Fondo de Presentacion
 		fondoPresentacion = new JLabel();
-		fondoPresentacion.setSize(ventana.getWidth(),ventana.getHeight());//Tamaño del fondo
+		fondoPresentacion.setSize(ventana.getWidth(),ventana.getHeight());//TamaÃ±o del fondo
 		fondoPresentacion.setIcon(new ImageIcon("imagenes/fondo.JPG")); //Indicamos cual es el fondo
 		panelPresentacion.add(fondoPresentacion,0);
 		
 		//Boton de Jugar
 		BotonJugar = new JLabel();
-		BotonJugar.setSize(150, 149);//Tamaño del boton
+		BotonJugar.setSize(150, 149);//TamaÃ±o del boton
 		BotonJugar.setLocation(270, 280);
 		BotonJugar.setIcon(new ImageIcon("imagenes/Boton.PNG")); //Indicamos cual la imagen
 		BotonJugar.setVisible(true);
@@ -61,14 +61,14 @@ public class Juego {
 		
 		//Panel juego
 		panelJuego = new JPanel();
-		panelJuego.setSize(ventana.getWidth(),ventana.getHeight()); //Tamaño de la ventana
+		panelJuego.setSize(ventana.getWidth(),ventana.getHeight()); //TamaÃ±o de la ventana
 		panelJuego.setLocation(0, 0);
 		panelJuego.setLayout(null); //Para colocar los componentes donde queramos
 		panelJuego.setVisible(true);
 		
 		//Fondo de Juego
 		fondoJuego = new JLabel();
-		fondoJuego.setSize(ventana.getWidth(),ventana.getHeight());//Tamaño del fondo
+		fondoJuego.setSize(ventana.getWidth(),ventana.getHeight());//TamaÃ±o del fondo
 		fondoJuego.setIcon(new ImageIcon("imagenes/fondo2.JPG")); //Indicamos cual es el fondo
 		
 		panelJuego.add(fondoJuego,0);
@@ -84,7 +84,17 @@ public class Juego {
 		Aleatorio = new Random();
 		this.numerosAleatorios();
 			
-		
+		//Matriz de imagenes
+		matriz = new JLabel[2][2];
+		for (int i=0; i<2;i++) {
+			for(int j=0; j<2;j++) {
+				matriz[i][j]=new JLabel();
+				matriz[i][j].setBounds(40+(j*110), 50*(i*132), 110, 132);
+				matriz[i][j].setIcon(new ImageIcon("imagenes/"+ mat[i][j]+".JPG"));
+				matriz[i][j].setVisible(true);
+				panelJuego.add(matriz[i][j],0);
+			}
+		}
 		
 		
 		
