@@ -69,8 +69,11 @@ public class Juego {
 		//Fondo de Juego
 		fondoJuego = new JLabel();
 		fondoJuego.setSize(ventana.getWidth(),ventana.getHeight());//Tamaño del fondo
-		fondoJuego.setIcon(new ImageIcon("imagenes/fondo.JPG")); //Indicamos cual es el fondo
-		fondoJuego.add(fondoJuego,0);
+		fondoJuego.setIcon(new ImageIcon("imagenes/fondo2.JPG")); //Indicamos cual es el fondo
+		
+		panelJuego.add(fondoJuego,0);
+		
+		
 		
 		
 		
@@ -80,15 +83,21 @@ public class Juego {
 		matAux = new int [2][2];
 		Aleatorio = new Random();
 		this.numerosAleatorios();
+			
+		
+		
 		
 		
 		BotonJugar.addMouseListener(new MouseAdapter() {
 			@Override
 		public void mousePressed(MouseEvent e) {
 			System.out.println("Presione el boton");
-		}
 			
-		});
+			
+			ventana.add(panelJuego);
+			panelPresentacion.setVisible(false);
+			panelJuego.setVisible(true);
+			}});
 		
 		
 		ventana.add(panelPresentacion); //Se agrega a la ventana
