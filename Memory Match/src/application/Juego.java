@@ -204,6 +204,7 @@ public class Juego {
 											matAux[antx][anty]= -1;
 											matriz[actualx][actualy].setIcon(new ImageIcon("imagenes/"+matAux[actualx][actualy]+".JPG"));
 											matriz[antx][anty].setIcon(new ImageIcon("imagenes/"+matAux[antx][anty]+".JPG"));
+											Contador=0;
 										}
 										
 										
