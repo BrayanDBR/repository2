@@ -48,7 +48,9 @@ public class Juego {
 		//Fondo de Presentacion
 		fondoPresentacion = new JLabel();
 		fondoPresentacion.setSize(ventana.getWidth(),ventana.getHeight());//Tamaño del fondo
+		fondoPresentacion.setLocation(0, 0);
 		fondoPresentacion.setIcon(new ImageIcon("imagenes/fondo.JPG")); //Indicamos cual es el fondo
+		fondoPresentacion.setVisible(true);
 		panelPresentacion.add(fondoPresentacion,0);
 		
 		//Boton de Jugar
@@ -69,13 +71,10 @@ public class Juego {
 		//Fondo de Juego
 		fondoJuego = new JLabel();
 		fondoJuego.setSize(ventana.getWidth(),ventana.getHeight());//Tamaño del fondo
+		fondoJuego.setLocation(0, 0);
 		fondoJuego.setIcon(new ImageIcon("imagenes/fondo2.JPG")); //Indicamos cual es el fondo
-		
+		fondoJuego.setVisible(true);
 		panelJuego.add(fondoJuego,0);
-		
-		
-		
-		
 		
 		
 		//Matriz Logica
@@ -89,11 +88,13 @@ public class Juego {
 		for (int i=0; i<2;i++) {
 			for(int j=0; j<2;j++) {
 				matriz[i][j]=new JLabel();
-				matriz[i][j].setBounds(40+(j*110), 50*(i*132), 110, 132);
-				matriz[i][j].setIcon(new ImageIcon("imagenes/"+ mat[i][j]+".JPG"));
+				matriz[i][j].setBounds(220+(j*110), 100+(i*134), 110, 134);
+				matriz[i][j].setIcon(new ImageIcon("imagenes/"+mat[i][j]+".JPG"));
 				matriz[i][j].setVisible(true);
-				panelJuego.add(matriz[i][j],0);
+				panelJuego.add(matriz[i][j],0);	
+				
 			}
+			
 		}
 		
 		
@@ -104,8 +105,8 @@ public class Juego {
 			System.out.println("Presione el boton");
 			
 			
-			ventana.add(panelJuego);
 			panelPresentacion.setVisible(false);
+			ventana.add(panelJuego);
 			panelJuego.setVisible(true);
 			}});
 		
@@ -128,6 +129,7 @@ public class Juego {
 			for(int j=0; j<2;j++) {
 				mat[i][j] = Aleatorio.nextInt(2);
 				do {
+			            acumulador=0;
 				for (int k=0; k<2;k++) {
 					for (int l=0; l<2;l++) {
 						if (mat[i][j]==mat[k][l]) {
