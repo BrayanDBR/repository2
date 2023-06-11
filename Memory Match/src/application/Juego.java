@@ -107,7 +107,7 @@ public class Juego {
 	
 		//Cronometro
 		Cronometro = new JLabel();
-		Cronometro.setSize(150,20);//Tamaño del fondo
+		Cronometro.setSize(150,20);//Tamano del fondo
 		Cronometro.setLocation(ventana.getWidth()-200,10);
 		Cronometro.setForeground(Color.WHITE);
 		Cronometro.setVisible(true);
